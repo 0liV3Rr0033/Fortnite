@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeForce Fortnite | OA GAMING</title>
+    <title>OA GAMING</title>
     <style>
-        /* Fullscreen & Reset */
+        /* Reset and Fullscreen */
         html, body {
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+            display: flex;
+            flex-direction: column;
             height: 100%;
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #111; /* Dark Mode */
-            color: white;
         }
 
         /* Animated Moving Background */
@@ -35,17 +35,33 @@
             100% { background-position: 100vw 100vh; }
         }
 
-        /* Play Button */
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: bold;
+            color: #76b900; /* GeForce Green */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            margin-bottom: 20px;
+        }
+
         .play-button {
             font-size: 24px;
             padding: 20px 40px;
-            background-color: #76b900; /* NVIDIA Green */
+            background-color: #76b900;
             color: white;
             border: none;
             border-radius: 12px;
             cursor: pointer;
             font-weight: bold;
-            z-index: 10;
             transition: 0.3s;
         }
 
@@ -53,53 +69,89 @@
             background-color: #5a8e00;
         }
 
-        /* Fullscreen iFrame */
-        .game-frame {
-            display: none;
-            width: 100%;
-            height: 100%;
-            border: none;
+        /* About Us and Mission Statement */
+        .section {
+            padding: 50px 20px;
+            text-align: center;
         }
 
-        /* Loading Spinner */
-        .loading-spinner {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 30px;
-            display: block;
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #76b900;
         }
+
+        .section p {
+            font-size: 18px;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .loading-screen h1 {
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+
     </style>
 
     <script>
         function launchGeForceNow() {
-            // Hide button and show loading spinner
+            // Hide button and show loading screen
             document.getElementById("start-button").style.display = "none";
-            document.getElementById("loadingSpinner").style.display = "block";
+            document.getElementById("loadingScreen").style.display = "flex";
 
             // Sound effect when launching
             let audio = new Audio('https://www.soundjay.com/button/beep-07.wav');
             audio.play();
 
-            // Load the game in the iframe
+            // Simulate loading time
             setTimeout(function() {
-                document.getElementById("gameFrame").style.display = "block";
-                document.getElementById("loadingSpinner").style.display = "none";
-            }, 2000); // Simulating load time for the game
+                window.location.href = "https://www.nvidia.com/en-us/geforce-now/"; // Redirect to GeForce Now
+            }, 3000); // Wait 3 seconds before redirection
         }
     </script>
 </head>
 <body>
     <div class="background"></div>
-    <button id="start-button" class="play-button" onclick="launchGeForceNow()">Play Fortnite on GeForce Now</button>
 
-    <!-- Loading Spinner -->
-    <div id="loadingSpinner" class="loading-spinner" style="display:none;">
-        Loading... <span class="spinner">⏳</span>
+    <!-- OA GAMING Hero Section -->
+    <div class="hero">
+        <h1>Welcome to OA GAMING</h1>
+        <button id="start-button" class="play-button" onclick="launchGeForceNow()">Play Fortnite on GeForce Now</button>
     </div>
 
-    <!-- Game iframe (GeForce Now) -->
-    <iframe id="gameFrame" class="game-frame" src="https://www.nvidia.com/en-us/geforce-now/"></iframe>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen" style="display:none;">
+        <h1>OA GAMING</h1>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="section">
+        <h2>About Us</h2>
+        <p>OA GAMING is a passionate gaming community focused on bringing the best gaming experiences to players worldwide. Our mission is to provide a platform where gamers can connect, compete, and enjoy their favorite titles, such as Fortnite, in a seamless and high-performance environment. We aim to foster a community of gamers who are not just players, but creators and innovators in the gaming world.</p>
+    </div>
+
+    <!-- Mission Statement Section -->
+    <div class="section" style="background-color: #222;">
+        <h2>Our Mission</h2>
+        <p>At OA GAMING, we believe gaming is more than just a hobby; it's a way of life. Our mission is to provide cutting-edge technology, excellent customer support, and a platform that allows players to experience their favorite games in the best possible way. With the power of NVIDIA's GeForce Now, we are dedicated to delivering the ultimate gaming experience, no matter where you are or what device you're using. Join us on this exciting journey as we redefine the future of gaming.</p>
+    </div>
 </body>
 </html>
